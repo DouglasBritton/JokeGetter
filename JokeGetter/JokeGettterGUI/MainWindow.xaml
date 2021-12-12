@@ -1,0 +1,94 @@
+﻿<Window x:Class="JokeGetterGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Joke Decoder" Height="450" Width="800"
+        Background="Gray"
+        MinWidth="800"
+        MinHeight="450">
+    <Grid>
+        <DockPanel>
+            <StackPanel Grid.Row="1"
+                        DockPanel.Dock="Top"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="5">
+                <Button x:Name="AddRandomJoke" Content="Add Random Joke"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Margin="5"
+                        Click="AddRandomJoke_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="Green"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="DarkGreen"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="150" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                <Button x:Name="RefreshTable" Content="Refresh Table"
+                            Foreground="White"
+                            FontSize="14"
+                            FontWeight="Medium"
+                            Margin="5"
+                            Click="RefreshTable_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#5fafed"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#2c87db"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="150" Height="25"
+                                CornerRadius="12"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+            <DockPanel Grid.Row="2"
+                       Height="Auto"
+                       MaxWidth="752"
+                       Margin="5">
+                <DataGrid x:Name="JokeDataGrid" Margin="0" AutoGenerateColumns="False"
+                          ItemsSource="{Binding JokeDetails}"
+                          ScrollViewer.CanContentScroll="True" 
+                          ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" CanUserReorderColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Jokes" Binding="{Binding Joke}" IsReadOnly="True" Width="600"/>
+                        <DataGridTextColumn Header="Similarity Score (%)" Binding="{Binding SimilarityScorePercentage}" IsReadOnly="True" Width="150"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

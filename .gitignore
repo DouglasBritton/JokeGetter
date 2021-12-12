@@ -1,0 +1,11 @@
+JokeGetter/UnitTests/obj/*
+JokeGetter/UnitTests/bin/*
+JokeGetter/JokeGetterGUI/obj/*
+JokeGetter/JokeGetterGUI/bin/*
+JokeGetter/JokeGetterCore/obj/*
+JokeGetter/JokeGetterCore/bin/*
+JokeGetter/JokeGetterCommon/obj/*
+JokeGetter/JokeGetterCommon/bin/*
+.vs/*
+JokeGetter/.vs/*
+*.config
