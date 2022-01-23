@@ -1,5 +1,5 @@
 # What is it
-An application that retrieves jokes from HumorAPI and can find the least similar joke out of the jokes retrieved.
+An application that retrieves jokes from HumorAPI and can find the similarity between the jokes retrieved.
 
 Please note that due to a restriction on api calls (from HumorAPI) you can only get 10 jokes a day.
 
